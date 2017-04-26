@@ -20,10 +20,13 @@ namespace Garage25
                         "~/Scripts/modernizr-*"));
 
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
+                      "~/Scripts/moment.min.js",
+                      "~/Scripts/bootstrap-sortable.js",
                       "~/Scripts/bootstrap.js",
                       "~/Scripts/respond.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
+                      "~/Content/bootstrap-sortable.css",
                       "~/Content/bootstrap.css",
                       "~/Content/site.css"));
         }

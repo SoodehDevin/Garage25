@@ -9,34 +9,36 @@
 <p>
     @Html.ActionLink("Park Vehicle", "Create")
 </p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.VType)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.RegNr)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Color)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Brand)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.VName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.WheelTally)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CheckInTime)
-        </th>
-        @*<th>
-            @Html.DisplayNameFor(model => model.CheckOutTime)
-        </th>*@
-        <th></th>
-    </tr>
+<table class="table sortable">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.VType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RegNr)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Color)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Brand)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.VName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.WheelTally)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CheckInTime)
+            </th>
+            @*<th>
+                    @Html.DisplayNameFor(model => model.CheckOutTime)
+                </th>*@
+            <th></th>
+        </tr>
+    </thead>
 
 @foreach (var item in Model) {
     <tr>
