@@ -51,6 +51,9 @@ namespace Garage25.Controllers
         {
             if (ModelState.IsValid)
             {
+                vehicle.RegNr = vehicle.RegNr.ToUpper();
+                vehicle.CheckInTime = DateTime.Now;
+                vehicle.CheckOutTime = DateTime.Now;
                 db.Vehicles.Add(vehicle);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -83,6 +86,9 @@ namespace Garage25.Controllers
         {
             if (ModelState.IsValid)
             {
+                vehicle.RegNr = vehicle.RegNr.ToUpper();
+                vehicle.CheckInTime = DateTime.Now;
+                vehicle.CheckOutTime = DateTime.Now;
                 db.Entry(vehicle).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
