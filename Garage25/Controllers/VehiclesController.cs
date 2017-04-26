@@ -35,6 +35,23 @@ namespace Garage25.Controllers
             }
             return View(vehicle);
         }
+        [HttpGet]
+        public ActionResult Search()
+        {
+
+
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Search(Vehicle model)
+        {
+
+            
+            return View(db.Vehicles.Where(v => v.RegNr == model.RegNr).ToList());
+        }
+
+
 
         // GET: Vehicles/Create
         public ActionResult Create()

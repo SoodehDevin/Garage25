@@ -31,8 +31,8 @@ namespace Garage25.Migrations
 
             context.Vehicles.AddOrUpdate(
                 p => p.RegNr,
-                new Vehicle { VType = VType.Car, RegNr = "FRL-111", Color = "Blue", Brand = "Toyota", VName = "Prius", CheckInTime = DateTime.Now, CheckOutTime = DateTime.Now },
-                new Vehicle { VType = VType.Motorcycle, RegNr = "FRL-222", Color = "Black", Brand = "Kawasaki", VName = "Jet", CheckInTime = DateTime.Now, CheckOutTime = DateTime.Now });
+                new Vehicle { VType = VType.Car, RegNr = "FRL-111", Color = "Blue", Brand = "Toyota", VName = "Prius", CheckInTime = DateTime.Now },
+                new Vehicle { VType = VType.Motorcycle, RegNr = "FRL-222", Color = "Black", Brand = "Kawasaki", VName = "Jet", CheckInTime = DateTime.Now});
         }
     }
 }

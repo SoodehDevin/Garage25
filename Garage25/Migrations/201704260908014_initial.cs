@@ -19,7 +19,7 @@ namespace Garage25.Migrations
                         VName = c.String(),
                         WheelTally = c.Int(nullable: false),
                         CheckInTime = c.DateTime(nullable: false),
-                        CheckOutTime = c.DateTime(nullable: false),
+                        CheckOutTime = c.DateTime(nullable: true),
                     })
                 .PrimaryKey(t => t.Id);
             
