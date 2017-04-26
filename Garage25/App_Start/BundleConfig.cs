@@ -27,7 +27,7 @@ namespace Garage25
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap-sortable.css",
-                      "~/Content/bootstrap.css",
+                      "~/Content/Flatly-alexei.css",
                       "~/Content/site.css"));
         }
     }

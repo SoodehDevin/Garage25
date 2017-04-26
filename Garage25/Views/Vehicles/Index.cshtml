@@ -9,7 +9,7 @@
 <p>
     @Html.ActionLink("Park Vehicle", "Create")
 </p>
-<table class="table sortable">
+<table class="table sortable table-hover">
     <thead>
         <tr>
             <th>
@@ -18,25 +18,25 @@
             <th>
                 @Html.DisplayNameFor(model => model.RegNr)
             </th>
-            <th>
+            @*<th>
                 @Html.DisplayNameFor(model => model.Color)
-            </th>
+            </th>*@
             <th>
                 @Html.DisplayNameFor(model => model.Brand)
             </th>
-            <th>
+            @*<th>
                 @Html.DisplayNameFor(model => model.VName)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.WheelTally)
-            </th>
+            </th>*@
             <th>
                 @Html.DisplayNameFor(model => model.CheckInTime)
             </th>
             @*<th>
                     @Html.DisplayNameFor(model => model.CheckOutTime)
                 </th>*@
-            <th></th>
+            <th data-defaultsort='disabled'></th>
         </tr>
     </thead>
 
@@ -48,18 +48,18 @@
         <td>
             @Html.DisplayFor(modelItem => item.RegNr)
         </td>
-        <td>
+        @*<td>
             @Html.DisplayFor(modelItem => item.Color)
-        </td>
+        </td>*@
         <td>
             @Html.DisplayFor(modelItem => item.Brand)
         </td>
-        <td>
+        @*<td>
             @Html.DisplayFor(modelItem => item.VName)
-        </td>
-        <td>
+        </td>*@
+        @*<td>
             @Html.DisplayFor(modelItem => item.WheelTally)
-        </td>
+        </td>*@
         <td>
             @Html.DisplayFor(modelItem => item.CheckInTime)
         </td>
