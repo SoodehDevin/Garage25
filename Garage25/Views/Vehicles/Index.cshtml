@@ -9,6 +9,42 @@
 <p>
     @Html.ActionLink("Park Vehicle", "Create")
 </p>
+
+<form>
+    <input type="text" name="reg" />
+    <input type="submit" value="Search" />
+    <br/>
+ 
+</form>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.VType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RegNr)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Color)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Brand)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.VName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.WheelTally)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CheckInTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CheckOutTime)
+        </th>
+        <th></th>
+    </tr>
 <table class="table sortable table-hover">
     <thead>
         <tr>
@@ -63,9 +99,9 @@
         <td>
             @Html.DisplayFor(modelItem => item.CheckInTime)
         </td>
-        @*<td>
+        <td>
             @Html.DisplayFor(modelItem => item.CheckOutTime)
-        </td>*@
+        </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
             @Html.ActionLink("Details", "Details", new { id=item.Id }) |

@@ -16,9 +16,15 @@ namespace Garage25.Controllers
         private VehiclesContext db = new VehiclesContext();
 
         // GET: Vehicles
-        public ActionResult Index()
+        public ActionResult Index(Vehicle model, string reg)
         {
-            return View(db.Vehicles.ToList());
+            if (reg == null)
+            {
+                return View(db.Vehicles.ToList());
+            }
+            var query = from r in db.Vehicles where r.RegNr == reg select r;
+            return View(query);
+
         }
 
         // GET: Vehicles/Details/5
@@ -35,7 +41,7 @@ namespace Garage25.Controllers
             }
             return View(vehicle);
         }
-
+  
         // GET: Vehicles/Create
         public ActionResult Create()
         {
