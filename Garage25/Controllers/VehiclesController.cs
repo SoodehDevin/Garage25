@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.Data.Entity.Migrations;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -94,7 +95,7 @@ namespace Garage25.Controllers
             {
                 vehicle.RegNr = vehicle.RegNr.ToUpper();
                 vehicle.CheckInTime = DateTime.Now;
-                vehicle.CheckOutTime = DateTime.Now;
+                //vehicle.CheckOutTime = DateTime.Now;
                 db.Entry(vehicle).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -114,6 +115,19 @@ namespace Garage25.Controllers
             {
                 return HttpNotFound();
             }
+            //var query = (from r in db.Vehicles where r.Id == id select r.CheckOutTime) ;
+            var query1 = db.Vehicles.FirstOrDefault(x => x.Id == id);
+            if (query1 != null)
+            {
+                query1.CheckOutTime = DateTime.Now;
+
+                db.Vehicles.AddOrUpdate();
+            }
+
+
+           
+          
+
             return View(vehicle);
         }
 
@@ -123,6 +137,8 @@ namespace Garage25.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             Vehicle vehicle = db.Vehicles.Find(id);
+
+
             db.Vehicles.Remove(vehicle);
             db.SaveChanges();
             return RedirectToAction("Index");
