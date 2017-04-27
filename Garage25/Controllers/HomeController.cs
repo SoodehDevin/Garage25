@@ -15,14 +15,14 @@ namespace Garage25.Controllers
 
         public ActionResult About()
         {
-            ViewBag.Message = "Your application description page.";
+            ViewBag.Message = "A very good and useful application this is!";
 
             return View();
         }
 
         public ActionResult Contact()
         {
-            ViewBag.Message = "Your contact page.";
+            ViewBag.Message = "Problem? Snacka med Gunnar!";
 
             return View();
         }

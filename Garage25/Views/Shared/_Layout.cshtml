@@ -16,15 +16,21 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink(" ", "Index", "Home", new {}, new { @class = "navbar-brand" })
+                @*<a href="@Url.Action("Index","Home")" class="navbar-brand">
+                    <img src="~/Content/images/frog.png" />
+                </a>*@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
+
+                    <li>@Html.ActionLink("Garage", "/", "Vehicles")</li>
+
                     <li>@Html.ActionLink("About", "About", "Home")</li>
                     <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
 
-                    <li>@Html.ActionLink("Garage", "/", "Vehicles")</li>
+                    
                 </ul>
             </div>
         </div>
