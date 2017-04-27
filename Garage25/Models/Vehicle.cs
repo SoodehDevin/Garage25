@@ -9,6 +9,7 @@ namespace Garage25.Models
 {
     public class Vehicle
     {
+        
         public int Id { get; set; }
 
         [Display(Name = "Vehicle Type")]
@@ -31,7 +32,6 @@ namespace Garage25.Models
 
         [Display(Name = "Check-in time")]
         public DateTime CheckInTime { get; set; }
-
 
         public DateTime CheckOutTime { get; set; }
 
