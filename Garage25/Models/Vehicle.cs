@@ -7,7 +7,6 @@ namespace Garage25.Models
 {
     public class Vehicle
     {
-
         
         public int Id { get; set; }
 
