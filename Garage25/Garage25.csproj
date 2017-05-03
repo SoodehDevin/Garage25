@@ -131,6 +131,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MembersController.cs" />
     <Compile Include="Controllers\VehiclesController.cs" />
+    <Compile Include="Controllers\VehiclesExampleController.cs" />
     <Compile Include="DataAccessLayer\VehiclesContext.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -209,6 +210,11 @@
     <Content Include="Views\Members\Details.cshtml" />
     <Content Include="Views\Members\Edit.cshtml" />
     <Content Include="Views\Members\Index.cshtml" />
+    <Content Include="Views\VehiclesExample\Create.cshtml" />
+    <Content Include="Views\VehiclesExample\Delete.cshtml" />
+    <Content Include="Views\VehiclesExample\Details.cshtml" />
+    <Content Include="Views\VehiclesExample\Edit.cshtml" />
+    <Content Include="Views\VehiclesExample\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

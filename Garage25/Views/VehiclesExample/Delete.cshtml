@@ -1,35 +1,23 @@
 ﻿@model Garage25.Models.Vehicle
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Details</h2>
+<h2>Delete</h2>
 
+<h3>Are you sure you want to delete this?</h3>
 <div>
     <h4>Vehicle</h4>
     <hr />
     <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Member.Id)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Member.Id)
-        </dd>
         <dt>
             @Html.DisplayNameFor(model => model.Member.FirstName)
         </dt>
 
         <dd>
             @Html.DisplayFor(model => model.Member.FirstName)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Member.LastName)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Member.LastName)
         </dd>
 
         <dt>
@@ -72,14 +60,6 @@
             @Html.DisplayFor(model => model.VName)
         </dd>
 
-        @*<dt>
-            @Html.DisplayNameFor(model => model.WheelTally)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.WheelTally)
-        </dd>*@
-
         <dt>
             @Html.DisplayNameFor(model => model.CheckInTime)
         </dt>
@@ -88,17 +68,22 @@
             @Html.DisplayFor(model => model.CheckInTime)
         </dd>
 
-        @*<dt>
+        <dt>
             @Html.DisplayNameFor(model => model.CheckOutTime)
         </dt>
 
         <dd>
             @Html.DisplayFor(model => model.CheckOutTime)
-        </dd>*@
+        </dd>
 
     </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
