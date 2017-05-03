@@ -129,18 +129,29 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\MembersController.cs" />
     <Compile Include="Controllers\VehiclesController.cs" />
     <Compile Include="DataAccessLayer\VehiclesContext.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201704260908014_initial.cs" />
-    <Compile Include="Migrations\201704260908014_initial.Designer.cs">
-      <DependentUpon>201704260908014_initial.cs</DependentUpon>
+    <Compile Include="Migrations\201705031218162_init.cs" />
+    <Compile Include="Migrations\201705031218162_init.Designer.cs">
+      <DependentUpon>201705031218162_init.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201705031254531_SeedReady.cs" />
+    <Compile Include="Migrations\201705031254531_SeedReady.Designer.cs">
+      <DependentUpon>201705031254531_SeedReady.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201705031302477_SeedReallyReady.cs" />
+    <Compile Include="Migrations\201705031302477_SeedReallyReady.Designer.cs">
+      <DependentUpon>201705031302477_SeedReallyReady.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Member.cs" />
     <Compile Include="Models\Receipt.cs" />
     <Compile Include="Models\Vehicle.cs" />
+    <Compile Include="Models\VehicleType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -149,7 +160,6 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Flatly-alexei.css" />
     <Content Include="Content\images\Frog-PNG-3-180x180.png" />
-    <Content Include="Content\images\frog.png" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -173,7 +183,9 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -192,6 +204,11 @@
     <Content Include="Views\Vehicles\Details.cshtml" />
     <Content Include="Views\Vehicles\Edit.cshtml" />
     <Content Include="Views\Vehicles\Index.cshtml" />
+    <Content Include="Views\Members\Create.cshtml" />
+    <Content Include="Views\Members\Delete.cshtml" />
+    <Content Include="Views\Members\Details.cshtml" />
+    <Content Include="Views\Members\Edit.cshtml" />
+    <Content Include="Views\Members\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -205,8 +222,14 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201704260908014_initial.resx">
-      <DependentUpon>201704260908014_initial.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201705031218162_init.resx">
+      <DependentUpon>201705031218162_init.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705031254531_SeedReady.resx">
+      <DependentUpon>201705031254531_SeedReady.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705031302477_SeedReallyReady.resx">
+      <DependentUpon>201705031302477_SeedReallyReady.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

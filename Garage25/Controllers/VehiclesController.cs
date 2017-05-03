@@ -9,12 +9,16 @@ using System.Web;
 using System.Web.Mvc;
 using Garage25.DataAccessLayer;
 using Garage25.Models;
+using System.Globalization;
+using System.Threading;
 
 namespace Garage25.Controllers
 {
     public class VehiclesController : Controller
     {
         private VehiclesContext db = new VehiclesContext();
+
+        
 
         // GET: Vehicles
         public ActionResult Index(Vehicle model, string reg)
@@ -58,6 +62,16 @@ namespace Garage25.Controllers
         {
             if (ModelState.IsValid)
             {
+                //setting time to swedish locale
+                
+                CultureInfo.DefaultThreadCurrentCulture = new CultureInfo("sv-SE");
+                CultureInfo.DefaultThreadCurrentUICulture = new CultureInfo("sv-SE");
+                Thread.CurrentThread.CurrentUICulture = new CultureInfo("sv-SE");
+                Thread.CurrentThread.CurrentCulture = new CultureInfo("sv-SE");
+                //            DateTime.ParseExact("12/02/21 10:56:09", "yy/MM/dd HH:mm:ss",
+                //CultureInfo.InvariantCulture
+                //).ToString("MMM. dd, yyyy HH:mm:ss")
+
                 vehicle.RegNr = vehicle.RegNr.ToUpper();
                 vehicle.CheckInTime = DateTime.Now;
                 vehicle.CheckOutTime = DateTime.Now;
@@ -95,7 +109,7 @@ namespace Garage25.Controllers
             {
                 vehicle.RegNr = vehicle.RegNr.ToUpper();
                 vehicle.CheckInTime = DateTime.Now;
-                //vehicle.CheckOutTime = DateTime.Now;
+                vehicle.CheckOutTime = DateTime.Now;
                 db.Entry(vehicle).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
