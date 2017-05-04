@@ -1,7 +1,9 @@
 ﻿@model Garage25.Models.Vehicle
 
+
 @{
     ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <h2>Details</h2>
@@ -13,14 +15,12 @@
         <dt>
             @Html.DisplayNameFor(model => model.Member.Id)
         </dt>
-
         <dd>
             @Html.DisplayFor(model => model.Member.Id)
         </dd>
         <dt>
             @Html.DisplayNameFor(model => model.Member.FirstName)
         </dt>
-
         <dd>
             @Html.DisplayFor(model => model.Member.FirstName)
         </dd>

@@ -12,23 +12,29 @@ namespace Garage25.Models
     using System;
     using System.Collections.Generic;
     using Garage25.Models;
-    
+    using System.ComponentModel.DataAnnotations;
+    using System.ComponentModel;
     public partial class Vehicle
     {
         public int Id { get; set; }
-
+        
         public int MemberId { get; set; }
-        public Member Member { get; set; }
+        public virtual Member Member { get; set; }
 
         public int VehicleTypeId { get; set; }
-        public VehicleType VehicleType { get; set; }
+        public virtual VehicleType VehicleType { get; set; }
 
+        [DisplayName("Registration Number")]
         public string RegNr { get; set; }
+        [DisplayName("Colour")]
         public string Color { get; set; }
         public string Make { get; set; }
+        [DisplayName("Model")]
         public string VName { get; set; }
         //public int WheelTally { get; set; }
+        [DisplayName("Check-in Time")]
         public DateTime CheckInTime { get; set; }
+        [DisplayName("Check-out Time")]
         public DateTime CheckOutTime { get; set; }
     }
 }

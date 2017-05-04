@@ -32,11 +32,7 @@ namespace Garage25.Controllers
             return View(query);
 
         }
-        //public ActionResult Index()
-        //{
-        //    var vehicles = db.Vehicles.Include(v => v.Member).Include(v => v.VehicleType);
-        //    return View(vehicles.ToList());
-        //}
+       
 
         // GET: Vehicles/Details/5
         public ActionResult Details(int? id)
@@ -60,7 +56,7 @@ namespace Garage25.Controllers
         //}
         public ActionResult Park()
         {
-            ViewBag.MemberId = new SelectList(db.Members, "Id", "FirstName");
+            ViewBag.MemberId = new SelectList(db.Members, "Id", "Id");
             ViewBag.VehicleTypeId = new SelectList(db.VehicleType, "Id", "Name");
             return View();
         }
@@ -151,9 +147,15 @@ namespace Garage25.Controllers
         {
             if (ModelState.IsValid)
             {
+                CultureInfo.DefaultThreadCurrentCulture = new CultureInfo("sv-SE");
+                CultureInfo.DefaultThreadCurrentUICulture = new CultureInfo("sv-SE");
+                Thread.CurrentThread.CurrentUICulture = new CultureInfo("sv-SE");
+                Thread.CurrentThread.CurrentCulture = new CultureInfo("sv-SE");
                 vehicle.RegNr = vehicle.RegNr.ToUpper();
-                vehicle.CheckInTime = DateTime.Now;
-                vehicle.CheckOutTime = DateTime.Now;
+                var V = db.Vehicles.AsNoTracking().First(x => x.Id == vehicle.Id);
+                vehicle.MemberId = V.MemberId;
+                vehicle.CheckInTime = V.CheckInTime;
+                vehicle.CheckOutTime = V.CheckOutTime;
                 db.Entry(vehicle).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -192,16 +194,13 @@ namespace Garage25.Controllers
             if (query1 != null)
             {
                 query1.CheckOutTime = DateTime.Now;
-
                 db.Vehicles.AddOrUpdate();
             }
-
-            
-           
-          
-
             return View(vehicle);
         }
+
+
+
 
         // POST: Vehicles/Delete/5
         [HttpPost, ActionName("CheckOut")]

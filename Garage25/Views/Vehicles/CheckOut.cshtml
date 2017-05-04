@@ -11,12 +11,31 @@
     <h4>Vehicle</h4>
     <hr />
     <dl class="dl-horizontal">
+        
         <dt>
-            @Html.DisplayNameFor(model => model.VType)
+            @Html.DisplayNameFor(model => model.Member.Id)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Member.Id)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Member.FirstName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Member.FirstName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Member.LastName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Member.LastName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.VehicleType.Name)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.VType)
+            @Html.DisplayFor(model => model.VehicleType.Name)
         </dd>
 
         <dt>
@@ -36,11 +55,11 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Brand)
+            @Html.DisplayNameFor(model => model.Make)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Brand)
+            @Html.DisplayFor(model => model.Make)
         </dd>
 
         <dt>
@@ -51,13 +70,13 @@
             @Html.DisplayFor(model => model.VName)
         </dd>
 
-        <dt>
+        @*<dt>
             @Html.DisplayNameFor(model => model.WheelTally)
         </dt>
 
         <dd>
             @Html.DisplayFor(model => model.WheelTally)
-        </dd>
+        </dd>*@
 
         <dt>
             @Html.DisplayNameFor(model => model.CheckInTime)
