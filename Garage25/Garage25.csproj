@@ -148,6 +148,14 @@
     <Compile Include="Migrations\201705031302477_SeedReallyReady.Designer.cs">
       <DependentUpon>201705031302477_SeedReallyReady.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201705040946361_ViewsDuration.cs" />
+    <Compile Include="Migrations\201705040946361_ViewsDuration.Designer.cs">
+      <DependentUpon>201705040946361_ViewsDuration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201705040957235_ViewsCost.cs" />
+    <Compile Include="Migrations\201705040957235_ViewsCost.Designer.cs">
+      <DependentUpon>201705040957235_ViewsCost.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Member.cs" />
     <Compile Include="Models\Receipt.cs" />
@@ -236,6 +244,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201705031302477_SeedReallyReady.resx">
       <DependentUpon>201705031302477_SeedReallyReady.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705040946361_ViewsDuration.resx">
+      <DependentUpon>201705040946361_ViewsDuration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705040957235_ViewsCost.resx">
+      <DependentUpon>201705040957235_ViewsCost.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

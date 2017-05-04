@@ -193,7 +193,13 @@ namespace Garage25.Controllers
             var query1 = db.Vehicles.FirstOrDefault(x => x.Id == id);
             if (query1 != null)
             {
+                CultureInfo.DefaultThreadCurrentCulture = new CultureInfo("sv-SE");
+                CultureInfo.DefaultThreadCurrentUICulture = new CultureInfo("sv-SE");
+                Thread.CurrentThread.CurrentUICulture = new CultureInfo("sv-SE");
+                Thread.CurrentThread.CurrentCulture = new CultureInfo("sv-SE");
                 query1.CheckOutTime = DateTime.Now;
+                query1.ParkingDuration = query1.CheckOutTime.Subtract(query1.CheckInTime).TotalMinutes;
+                query1.ParkingCost = (Int32)(query1.ParkingDuration * 60);
                 db.Vehicles.AddOrUpdate();
             }
             return View(vehicle);

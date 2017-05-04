@@ -36,5 +36,9 @@ namespace Garage25.Models
         public DateTime CheckInTime { get; set; }
         [DisplayName("Check-out Time")]
         public DateTime CheckOutTime { get; set; }
+        [DisplayName("Parking duration in minutes")]
+        public double ParkingDuration { get; set; }
+        [DisplayName("Parking Cost")]
+        public int ParkingCost { get; set; }
     }
 }
