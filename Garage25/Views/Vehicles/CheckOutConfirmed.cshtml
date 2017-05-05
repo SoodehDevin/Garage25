@@ -1,0 +1,60 @@
+﻿@model Garage25.Models.Receipt
+
+@{
+    ViewBag.Title = "CheckOutConfirmed";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>CheckOutConfirmed</h2>
+
+<div>
+    <h4>Receipt</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.RegNo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RegNo)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.CheckInTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CheckInTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CheckOutTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CheckOutTime)
+        </dd>
+
+        
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ParkingDuration)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ParkingDuration)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ParkingCost)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ParkingCost)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -11,5 +11,7 @@ namespace Garage25.Models
         public int Id { get; set; }
         [DisplayName("Vehicle Type")]
         public string Name { get; set; }
+
+       
     }
 }

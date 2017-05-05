@@ -130,6 +130,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MembersController.cs" />
+    <Compile Include="Controllers\ReceiptController.cs" />
     <Compile Include="Controllers\VehiclesController.cs" />
     <Compile Include="Controllers\VehiclesExampleController.cs" />
     <Compile Include="DataAccessLayer\VehiclesContext.cs" />
@@ -155,6 +156,10 @@
     <Compile Include="Migrations\201705040957235_ViewsCost.cs" />
     <Compile Include="Migrations\201705040957235_ViewsCost.Designer.cs">
       <DependentUpon>201705040957235_ViewsCost.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201705041352350_ViewsWithout.cs" />
+    <Compile Include="Migrations\201705041352350_ViewsWithout.Designer.cs">
+      <DependentUpon>201705041352350_ViewsWithout.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Member.cs" />
@@ -223,9 +228,12 @@
     <Content Include="Views\VehiclesExample\Details.cshtml" />
     <Content Include="Views\VehiclesExample\Edit.cshtml" />
     <Content Include="Views\VehiclesExample\Index.cshtml" />
+    <Content Include="Views\Vehicles\Receipt.cshtml" />
+    <Content Include="Views\Vehicles\CheckOutConfirmed.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Receipt\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -250,6 +258,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201705040957235_ViewsCost.resx">
       <DependentUpon>201705040957235_ViewsCost.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705041352350_ViewsWithout.resx">
+      <DependentUpon>201705041352350_ViewsWithout.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

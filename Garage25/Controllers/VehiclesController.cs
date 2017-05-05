@@ -23,9 +23,20 @@ namespace Garage25.Controllers
         // GET: Vehicles
         public ActionResult Index(Vehicle model, string reg)
         {
+            CultureInfo.DefaultThreadCurrentCulture = new CultureInfo("sv-SE");
+            CultureInfo.DefaultThreadCurrentUICulture = new CultureInfo("sv-SE");
+            Thread.CurrentThread.CurrentUICulture = new CultureInfo("sv-SE");
+            Thread.CurrentThread.CurrentCulture = new CultureInfo("sv-SE");
             if (reg == null)
             {
                 var vehicles = db.Vehicles.Include(v => v.Member).Include(v => v.VehicleType);
+                //foreach (var vehicle in vehicles)
+                //{
+                //    vehicle.ParkingDuration = DateTime.Now.Subtract(vehicles.CheckInTime).TotalMinutes;
+                //}
+                ////var query1 = db.Vehicles.FirstOrDefault(x => x.Id == id);
+
+                //vehicles.ParkingDuration = DateTime.Now.Subtract(vehicles.CheckInTime).TotalMinutes;
                 return View(vehicles.ToList());
             }
             var query = from r in db.Vehicles.Include(v => v.Member).Include(v => v.VehicleType) where r.RegNr == reg select r;
@@ -92,20 +103,7 @@ namespace Garage25.Controllers
             ViewBag.VehicleTypeId = new SelectList(db.VehicleType, "Id", "Name", vehicle.VehicleTypeId);
             return View(vehicle);
         }
-        //public ActionResult Create([Bind(Include = "Id,MemberId,VehicleTypeId,RegNr,Color,Make,VName,CheckInTime,CheckOutTime")] Vehicle vehicle)
-        //{
-        //    if (ModelState.IsValid)
-        //    {
-        //        db.Vehicles.Add(vehicle);
-        //        db.SaveChanges();
-        //        return RedirectToAction("Index");
-        //    }
-
-        //    ViewBag.MemberId = new SelectList(db.Members, "Id", "FirstName", vehicle.MemberId);
-        //    ViewBag.VehicleTypeId = new SelectList(db.VehicleType, "Id", "Name", vehicle.VehicleTypeId);
-        //    return View(vehicle);
-        //}
-
+        
         // GET: Vehicles/Edit/5
         public ActionResult Edit(int? id)
         {
@@ -164,19 +162,7 @@ namespace Garage25.Controllers
             ViewBag.VehicleTypeId = new SelectList(db.VehicleType, "Id", "Name", vehicle.VehicleTypeId);
             return View(vehicle);
         }
-        //public ActionResult Edit([Bind(Include = "Id,MemberId,VehicleTypeId,RegNr,Color,Make,VName,CheckInTime,CheckOutTime")] Vehicle vehicle)
-        //{
-        //    if (ModelState.IsValid)
-        //    {
-        //        db.Entry(vehicle).State = EntityState.Modified;
-        //        db.SaveChanges();
-        //        return RedirectToAction("Index");
-        //    }
-        //    ViewBag.MemberId = new SelectList(db.Members, "Id", "FirstName", vehicle.MemberId);
-        //    ViewBag.VehicleTypeId = new SelectList(db.VehicleType, "Id", "Name", vehicle.VehicleTypeId);
-        //    return View(vehicle);
-        //}
-
+        
         // GET: Vehicles/Delete/5
         public ActionResult CheckOut(int? id)
         {
@@ -197,9 +183,7 @@ namespace Garage25.Controllers
                 CultureInfo.DefaultThreadCurrentUICulture = new CultureInfo("sv-SE");
                 Thread.CurrentThread.CurrentUICulture = new CultureInfo("sv-SE");
                 Thread.CurrentThread.CurrentCulture = new CultureInfo("sv-SE");
-                query1.CheckOutTime = DateTime.Now;
-                query1.ParkingDuration = query1.CheckOutTime.Subtract(query1.CheckInTime).TotalMinutes;
-                query1.ParkingCost = (Int32)(query1.ParkingDuration * 60);
+                
                 db.Vehicles.AddOrUpdate();
             }
             return View(vehicle);
@@ -213,12 +197,23 @@ namespace Garage25.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult CheckOutConfirmed(int id)
         {
+            CultureInfo.DefaultThreadCurrentCulture = new CultureInfo("sv-SE");
+            CultureInfo.DefaultThreadCurrentUICulture = new CultureInfo("sv-SE");
+            Thread.CurrentThread.CurrentUICulture = new CultureInfo("sv-SE");
+            Thread.CurrentThread.CurrentCulture = new CultureInfo("sv-SE");
+
             Vehicle vehicle = db.Vehicles.Find(id);
 
+            Receipt receipt = new Receipt();
 
-            db.Vehicles.Remove(vehicle);
-            db.SaveChanges();
-            return RedirectToAction("Index");
+            receipt.RegNo = vehicle.RegNr;
+            receipt.CheckInTime = vehicle.CheckInTime;
+            receipt.CheckOutTime = DateTime.Now;
+            receipt.ParkingDuration = receipt.CheckOutTime.Subtract(receipt.CheckInTime).TotalMinutes;
+            receipt.ParkingCost = (int)receipt.ParkingDuration * 60;
+            //db.Vehicles.Remove(vehicle);
+            //db.SaveChanges();
+            return View("CheckOutConfirmed", receipt);
         }
 
         protected override void Dispose(bool disposing)
