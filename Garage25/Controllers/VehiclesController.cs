@@ -11,13 +11,18 @@ using Garage25.DataAccessLayer;
 using Garage25.Models;
 using System.Globalization;
 using System.Threading;
+using System.Timers;
+
+
 
 namespace Garage25.Controllers
 {
+    
+
     public class VehiclesController : Controller
     {
         private VehiclesContext db = new VehiclesContext();
-
+        
 
 
         // GET: Vehicles
@@ -30,14 +35,22 @@ namespace Garage25.Controllers
             if (reg == null)
             {
                 var vehicles = db.Vehicles.Include(v => v.Member).Include(v => v.VehicleType);
-                //foreach (var vehicle in vehicles)
-                //{
-                //    vehicle.ParkingDuration = DateTime.Now.Subtract(vehicles.CheckInTime).TotalMinutes;
-                //}
-                ////var query1 = db.Vehicles.FirstOrDefault(x => x.Id == id);
+                
+                List<Duration> durations = new List<Duration>();
+                foreach (var duration in durations)
+                {
+                    foreach (var vehicle in vehicles)
+                    {
+                        duration.MemberId = vehicle.Member.Id;
+                        duration.VehicleTypeId = vehicle.VehicleType.Id;
 
-                //vehicles.ParkingDuration = DateTime.Now.Subtract(vehicles.CheckInTime).TotalMinutes;
-                return View(vehicles.ToList());
+                        duration.RegNr = vehicle.RegNr;
+                        duration.CheckInTime = vehicle.CheckInTime;
+                        duration.CurrentTime = DateTime.Now;
+                        duration.ParkingDuration = (int)duration.CurrentTime.Subtract(duration.CheckInTime).TotalMinutes;
+                    }
+                }
+                return View("Duration", durations);
             }
             var query = from r in db.Vehicles.Include(v => v.Member).Include(v => v.VehicleType) where r.RegNr == reg select r;
             return View(query);
@@ -71,7 +84,7 @@ namespace Garage25.Controllers
             ViewBag.VehicleTypeId = new SelectList(db.VehicleType, "Id", "Name");
             return View();
         }
-
+          
         // POST: Vehicles/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
@@ -87,9 +100,7 @@ namespace Garage25.Controllers
                 CultureInfo.DefaultThreadCurrentUICulture = new CultureInfo("sv-SE");
                 Thread.CurrentThread.CurrentUICulture = new CultureInfo("sv-SE");
                 Thread.CurrentThread.CurrentCulture = new CultureInfo("sv-SE");
-                //            DateTime.ParseExact("12/02/21 10:56:09", "yy/MM/dd HH:mm:ss",
-                //CultureInfo.InvariantCulture
-                //).ToString("MMM. dd, yyyy HH:mm:ss")
+                
 
                 vehicle.RegNr = vehicle.RegNr.ToUpper();
                 vehicle.CheckInTime = DateTime.Now;
